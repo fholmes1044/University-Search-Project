@@ -1,31 +1,52 @@
-const getSubmitButton = document.getElementById("submit")
-const getForm = document.getElementById("search-form")
-const formInput = document.getElementById('input')
-const displayDiv = document.getElementById("colleges-list")
-const makeUl = document.createElement("ul")
-const makeLi= document.createElement("li")
-console.log("submit", getSubmitButton)
+const getSubmitButton = document.getElementById("submit");
+const getForm = document.getElementById("search-form");
+const formInput = document.getElementById("input");
+const getMainDiv = document.getElementById("main")
+const div2 = document.createElement("div")
+div2.id = "results"
+getMainDiv.appendChild(div2);
+const makeUl = document.createElement("ul");
+div2.appendChild(makeUl);
 
-function findValues(event){
-    event.preventDefault();
-    const value = input.value
-    console.log(value)
+const div3 = document.createElement("div")
+div3.id = "button"
+getMainDiv.appendChild(div3)
 
-    fetch(`http://universities.hipolabs.com/search?name=${value}`)
-.then((resp) => resp.json())
-.then((resp) => {
-    console.log("response",resp)
-    // let div2 = document.createElement("div")
-    // getForm.appendChild(div2)
-    resp.forEach(element =>{
-        let p1 = document.createElement("p")
-        p1.innerText = element.name;
-        displayDiv.appendChild(p1)
-    })
-    //addResult(resp)
-    //resp.forEach((item) => addResult(item))
-    
-})
+
+
+
+console.log("submit", getSubmitButton);
+
+function findValues(event) {
+  event.preventDefault();
+  const value = input.value;
+  console.log(value);
+
+  fetch(`http://universities.hipolabs.com/search?name=${value}`)
+    .then((res) => res.json())
+    .then((resp) => {
+        console.log("response", resp)
+      resp.forEach((response) =>addResult(response));
+    });
 }
-getForm.addEventListener('submit', findValues)
+
+
+ getForm.addEventListener("submit", findValues);
+
+ function addResult(item) {
+  const {name, country, alpha_two_code} = item
+  console.log("item", item);
+  //let results = item;
+   //console.log("name", item);
+
+   //makeUl.id = "resultsUl"
+   makeUl.appendChild(document.createElement("li")).innerHTML = item.name
+   
+    
+    const makebutton = document.createElement("button")
+    makebutton.innerHTML = "Go to University Website"
+    div3.appendChild(makebutton)
+    
+}
+
 
