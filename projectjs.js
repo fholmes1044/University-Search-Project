@@ -1,18 +1,6 @@
 const getSubmitButton = document.getElementById("submit");
 const getForm = document.getElementById("search-form");
 const formInput = document.getElementById("input");
-//const getMainDiv = document.getElementById("main")
-//const div2 = document.createElement("div")
-//div2.id = "results"
-//getMainDiv.appendChild(div2);
-// const makeUl = document.createElement("ul");
-// div2.appendChild(makeUl);
-
-// const div3 = document.createElement("div")
-// div3.id = "button"
-// getMainDiv.appendChild(div3)
-
-
 
 
 console.log("submit", getSubmitButton);
@@ -47,17 +35,23 @@ div2.appendChild(h2).innerHTML = name;
 let p = document.createElement("p")
 div2.appendChild(p).innerHTML = `Country: ${country}`
 
- }
+let buttons = document.createElement("button");
+buttons.classList = "url-buttons"
+div2.appendChild(buttons).innerText = "Go to University Website";
 
-//  function addResult(item) {
-//    
-//    console.log("item", item);
+let getButtons = document.getElementsByClassName("url-buttons")
 
-//    makeUl.appendChild(document.createElement("li")).innerHTML = item.name;
+Array.from(getButtons).forEach(button => {
+  button.addEventListener('click', event => {
+    //console.log("event", event);
+    universitywebsite();
+  })
+})
+} 
 
-//    const makebutton = document.createElement("button");
-//    makebutton.innerHTML = "Go to University Website";
-//    div3.appendChild(makebutton);
-//  }
 
-
+function universitywebsite(element){
+  console.log("element")
+  
+  
+}
