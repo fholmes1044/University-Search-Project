@@ -7,7 +7,8 @@ const subscribeButton = document.createElement("button")
 subscribeButton.id = "subscribe"
 maindiv.appendChild(subscribeButton).innerHTML ="Subscribe for University Updates"
 subscribeButton.addEventListener('click', subscribe, false)
-
+const getComment = document.getElementById("post")
+getComment.addEventListener("click", comments)
  
 
 
@@ -72,12 +73,12 @@ function subscribe(){
  let thanks = alert ( "Thank you for subscribing!");
 }
 
-
-
-//function subscribe(){
-  // const subscribeButton = document.createElement("button")
-  // subscribeButton.id = "subscribe"
-  // getForm.appendChild(subscribeButton)
-  // subscribeButton.addEventListener('click', alert)
-//}
-
+function comments(){
+  let commentBoxValue= document.getElementById("comment-box").value;
+ 
+    const li = document.createElement("li");
+    const text = document.createTextNode(commentBoxValue);
+    li.appendChild(text);
+    document.getElementById("unordered").appendChild(li);
+ 
+}
