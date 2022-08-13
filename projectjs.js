@@ -1,6 +1,16 @@
+
 const getSubmitButton = document.getElementById("submit");
 const getForm = document.getElementById("search-form");
 const formInput = document.getElementById("input");
+const maindiv = document.getElementById("main")
+const subscribeButton = document.createElement("button")
+subscribeButton.id = "subscribe"
+maindiv.appendChild(subscribeButton).innerHTML ="Subscribe for University Updates"
+subscribeButton.addEventListener('click', subscribe, false)
+
+ 
+
+
 
 
 console.log("submit", getSubmitButton);
@@ -55,3 +65,19 @@ function universitywebsite(element){
   
   
 }
+
+
+function subscribe(){
+ let email = prompt ("What is your email?"); 
+ let thanks = alert ( "Thank you for subscribing!");
+}
+
+
+
+//function subscribe(){
+  // const subscribeButton = document.createElement("button")
+  // subscribeButton.id = "subscribe"
+  // getForm.appendChild(subscribeButton)
+  // subscribeButton.addEventListener('click', alert)
+//}
+
