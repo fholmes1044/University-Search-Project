@@ -10,9 +10,10 @@ subscribeButton.addEventListener('click', subscribe, false)
 const getComment = document.getElementById("post")
 getComment.addEventListener("click", comments)
  
-
-
-
+const darkLightButton = document.createElement("button")
+darkLightButton.id = "dlb"
+maindiv.appendChild(darkLightButton).innerHTML = "Dark Mode"
+darkLightButton.addEventListener('click', darkLight)
 
 console.log("submit", getSubmitButton);
 
@@ -81,4 +82,17 @@ function comments(){
     li.appendChild(text);
     document.getElementById("unordered").appendChild(li);
  
+}
+
+function darkLight(){
+  const css = document.getElementById("cssfile")
+  document.getElementById("dlb")
+  if(dlb.innerHTML === "Dark Mode") {
+   css.setAttribute('href','darkmode.css' )
+   dlb.innerHTML = "Light Mode"
+  }
+  else{css.setAttribute('href','project.css' )
+  dlb.innerHTML = "Dark Mode"
+
+  }
 }
