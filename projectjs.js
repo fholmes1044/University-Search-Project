@@ -15,6 +15,14 @@ darkLightButton.id = "dlb"
 maindiv.appendChild(darkLightButton).innerHTML = "Dark Mode"
 darkLightButton.addEventListener('click', darkLight)
 
+
+// const createUrlP = document.createElement("p")
+// createUrlP.id = "url"
+// createUrlP.innerText = "work"
+// createUrlP.style = "display: none"
+
+
+
 console.log("submit", getSubmitButton);
 
 function findValues(event) {
@@ -27,6 +35,7 @@ function findValues(event) {
     .then((resp) => {
         console.log("response", resp)
       resp.forEach((response) =>addResult(response));
+     
     });
 }
 
@@ -47,6 +56,9 @@ div2.appendChild(h2).innerHTML = name;
 let p = document.createElement("p")
 div2.appendChild(p).innerHTML = `Country: ${country}`
 
+let p2 = document.createElement("p")
+div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
+
 let buttons = document.createElement("button");
 buttons.classList = "url-buttons"
 div2.appendChild(buttons).innerText = "Go to University Website";
@@ -54,20 +66,17 @@ div2.appendChild(buttons).innerText = "Go to University Website";
 let getButtons = document.getElementsByClassName("url-buttons")
 
 Array.from(getButtons).forEach(button => {
-  button.addEventListener('click', event => {
-    //console.log("event", event);
-    universitywebsite();
+    button.onclick = function (){
+      location.href = web_pages, 
+      button.target="_blank";
+    }
+   
   })
-})
-} 
 
-
-function universitywebsite(element){
-  console.log("element")
-  
-  
+let likebtn = document.createElement("button")
+div2.appendChild(likebtn).innerText = "Favorite this School"
+likebtn.addEventListener('click', )
 }
-
 
 function subscribe(){
  let email = prompt ("What is your email?"); 
