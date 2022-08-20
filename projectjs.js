@@ -20,7 +20,11 @@ darkLightButton.addEventListener('click', darkLight)
 // createUrlP.id = "url"
 // createUrlP.innerText = "work"
 // createUrlP.style = "display: none"
-
+function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}
 
 
 console.log("submit", getSubmitButton);
@@ -60,7 +64,7 @@ let p2 = document.createElement("p")
 div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
 
 let p3 = document.createElement("p")
-div2.appendChild(p3).innerHTML = "likes"
+div2.appendChild(p3).innerHTML = " 0 likes"
 
 let buttons = document.createElement("button");
 buttons.classList = "url-buttons"
@@ -77,17 +81,10 @@ Array.from(getButtons).forEach(button => {
   })
 
 let likebtn = document.createElement("button")
-div2.appendChild(likebtn).innerText = "Favorite this School"
-likebtn.addEventListener('click', (event) => {
-  event.preventDefault()
-  console.log("count", count)
-  console.log(event)
-  fetch(`http://localhost:8000/universities`)
-    .then((res) => res.json())
-    .then((resp) => {
-      console.log("response", resp);
-      resp.forEach((like) => updateLikes(like) )
-    })
+div2.appendChild(likebtn).innerText = 1
+likebtn.addEventListener('click', (e) => {
+  increment(e)
+  
   },
   )
 }
@@ -121,3 +118,21 @@ function darkLight(){
   }
 }
 
+function increment(event){
+  console.log(event.target.innerText)
+  let count = parseInt(event.target.innerText) + 1;
+  console.log("count", count)
+
+  // fetch(`http://localhost:8000/universities/${event.target}`,{
+  //   method:"PATCH",
+  //   headers:{
+  //     "Content-Type": "application/json",
+  //     "Accept" : "application/json"
+  //   },
+  //   body:JSON.stringify({
+  //     likes:count,
+  //   })
+  // })
+  // .then((response) => response.json())
+  // .then((json) => console.log(json));
+}

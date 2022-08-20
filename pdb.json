@@ -1,39 +1,31 @@
-{"universities": [
-      {
-        "likes": 0
-      },
-      {
-        
-        "likes": 0
-      },
-      {
-       
-        "likes": 0
-      },
-      {
-        
-        "likes": 0
-      },
-      {
-        
-        "likes": 0
-      },
-      {
-    
-        "likes": 0
-      },
-      {
-        
-        "likes": 0
-      },
-      {
-        
-        "likes": 0
-      },
-      {
-        
-        "likes": 0
-      }
-      
-    ]
-  }
+{
+  "universities": [
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    },
+    {
+      "likes": 0
+    }
+  ]
+}
