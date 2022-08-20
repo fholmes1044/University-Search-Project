@@ -59,6 +59,9 @@ div2.appendChild(p).innerHTML = `Country: ${country}`
 let p2 = document.createElement("p")
 div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
 
+let p3 = document.createElement("p")
+div2.appendChild(p3).innerHTML = "likes"
+
 let buttons = document.createElement("button");
 buttons.classList = "url-buttons"
 div2.appendChild(buttons).innerText = "Go to University Website";
@@ -75,8 +78,20 @@ Array.from(getButtons).forEach(button => {
 
 let likebtn = document.createElement("button")
 div2.appendChild(likebtn).innerText = "Favorite this School"
-likebtn.addEventListener('click', )
+likebtn.addEventListener('click', (event) => {
+  event.preventDefault()
+  console.log("count", count)
+  console.log(event)
+  fetch(`http://localhost:8000/universities`)
+    .then((res) => res.json())
+    .then((resp) => {
+      console.log("response", resp);
+      resp.forEach((like) => updateLikes(like) )
+    })
+  },
+  )
 }
+
 
 function subscribe(){
  let email = prompt ("What is your email?"); 
@@ -105,3 +120,4 @@ function darkLight(){
 
   }
 }
+
