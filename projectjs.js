@@ -64,7 +64,8 @@ let p2 = document.createElement("p")
 div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
 
 let p3 = document.createElement("p")
-div2.appendChild(p3).innerHTML = " 0 likes"
+p3.id = "like"
+div2.appendChild(p3).innerHTML = 0 
 
 let buttons = document.createElement("button");
 buttons.classList = "url-buttons"
@@ -81,13 +82,23 @@ Array.from(getButtons).forEach(button => {
   })
 
 let likebtn = document.createElement("button")
-div2.appendChild(likebtn).innerText = 1
-likebtn.addEventListener('click', (e) => {
-  increment(e)
+likebtn.id = "likebtn"
+div2.appendChild(likebtn).innerText = "Like Button"
+likebtn.classList = "like-buttons"
+
+likebtn.addEventListener('click', function increment(){
+  const getLikes = document.getElementById("like")
+  let value = getLikes.innerHTML
+
+  ++value
+  document.getElementById('like').innerHTML = value
+  console.log("value", value)
+
+})
   
-  },
-  )
-}
+  }
+  
+
 
 
 function subscribe(){
@@ -118,10 +129,10 @@ function darkLight(){
   }
 }
 
-function increment(event){
-  console.log(event.target.innerText)
-  let count = parseInt(event.target.innerText) + 1;
-  console.log("count", count)
+// function increment(event){
+//   console.log(event.target.innerText)
+//   let count = parseInt(event.target.innerText) + 1;
+//   console.log("count", count)
 
   // fetch(`http://localhost:8000/universities/${event.target}`,{
   //   method:"PATCH",
@@ -135,4 +146,4 @@ function increment(event){
   // })
   // .then((response) => response.json())
   // .then((json) => console.log(json));
-}
+//}
