@@ -15,11 +15,11 @@ darkLightButton.id = "dlb"
 maindiv.appendChild(darkLightButton).innerHTML = "Dark Mode"
 darkLightButton.addEventListener('click', darkLight)
 
+const getAllButtons = document.querySelectorAll("button")
+console.log("butt", getAllButtons)
+Array.from(getAllButtons).forEach(button => {
+button.addEventListener("mouseover", mouseover)})
 
-// const createUrlP = document.createElement("p")
-// createUrlP.id = "url"
-// createUrlP.innerText = "work"
-// createUrlP.style = "display: none"
 function myFunction(x) {
   x.classList.toggle("fa-thumbs-down");
 }function myFunction(x) {
@@ -127,6 +127,12 @@ function darkLight(){
   dlb.innerHTML = "Dark Mode"
 
   }
+}
+
+function mouseover(){
+  Array.from(getAllButtons).forEach(button => {
+  button.style.cursor = "pointer"})
+
 }
 
 // function increment(event){
