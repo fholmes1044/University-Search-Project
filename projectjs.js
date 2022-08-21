@@ -1,5 +1,6 @@
 
 const getSubmitButton = document.getElementById("submit");
+getSubmitButton.addEventListener("mouseover", submitMouse)
 const getForm = document.getElementById("search-form");
 const formInput = document.getElementById("input");
 const maindiv = document.getElementById("main")
@@ -127,6 +128,9 @@ function darkLight(){
   dlb.innerHTML = "Dark Mode"
 
   }
+}
+function submitMouse(){
+getSubmitButton.style.cursor = "pointer"
 }
 
 function mouseover(){
