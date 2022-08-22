@@ -1,6 +1,8 @@
 
 const getSubmitButton = document.getElementById("submit");
 getSubmitButton.addEventListener("mouseover", submitMouse)
+
+
 const getForm = document.getElementById("search-form");
 const formInput = document.getElementById("input");
 const maindiv = document.getElementById("main")
@@ -34,7 +36,7 @@ function findValues(event) {
   event.preventDefault();
   const value = input.value;
   console.log(value);
-
+  formInput.value = '';
   fetch(`http://universities.hipolabs.com/search?name=${value}`)
     .then((res) => res.json())
     .then((resp) => {
@@ -132,6 +134,7 @@ function darkLight(){
 function submitMouse(){
 getSubmitButton.style.cursor = "pointer"
 }
+
 
 function mouseover(){
   Array.from(getAllButtons).forEach(button => {
