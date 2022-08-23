@@ -19,7 +19,7 @@ maindiv.appendChild(darkLightButton).innerHTML = "Dark Mode"
 darkLightButton.addEventListener('click', darkLight)
 
 const getAllButtons = document.querySelectorAll("button")
-console.log("butt", getAllButtons)
+//console.log("butt", getAllButtons)
 Array.from(getAllButtons).forEach(button => {
 button.addEventListener("mouseover", mouseover)})
 
@@ -40,42 +40,42 @@ function findValues(event) {
     .then((res) => res.json())
     .then((resp) => {
         allSchools.push(...resp)
-        console.log("response", resp)
-      resp.forEach((response) =>addResult(response));
+        //console.log("response", resp)
+        resp.forEach((response) =>addResult(response));
      
     });
 }
 
 
- getForm.addEventListener("submit", findValues);
+getForm.addEventListener("submit", findValues);
 
- function addResult(item) {
+function addResult(item) {
 
-const { name, country, web_pages } = item;
-const getMainDiv = document.getElementById("main")
-const div2 = document.createElement("div")
-div2.id = "results"
-getMainDiv.appendChild(div2);
-console.log("item", item.name)
+  const { name, country, web_pages } = item;
+  const getMainDiv = document.getElementById("main")
+  const div2 = document.createElement("div")
+  div2.id = "results"
+  getMainDiv.appendChild(div2);
+  //console.log("item", item.name)
 
-let h2 = document.createElement("h2")
-div2.appendChild(h2).innerHTML = name;
+  let h2 = document.createElement("h2")
+  div2.appendChild(h2).innerHTML = name;
 
-let p = document.createElement("p")
-div2.appendChild(p).innerHTML = `Country: ${country}`
+  let p = document.createElement("p")
+  div2.appendChild(p).innerHTML = `Country: ${country}`
 
-let p2 = document.createElement("p")
-div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
+  let p2 = document.createElement("p")
+  div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
 
-let p3 = document.createElement("p")
-p3.id = "like"
-div2.appendChild(p3).innerHTML = 0 
+  let p3 = document.createElement("p")
+  p3.id = "like"
+  div2.appendChild(p3).innerHTML = 0 
 
-let button = document.createElement("button");
-button.classList = "url-buttons"
-div2.appendChild(button).innerText = "Go to University Website";
-button.addEventListener("click", () => {
- location.href = web_pages, 
+  let button = document.createElement("button");
+  button.classList = "url-buttons"
+  div2.appendChild(button).innerText = "Go to University Website";
+  button.addEventListener("click", () => {
+      location.href = web_pages, 
       button.target="_blank"; 
 })
 
@@ -101,15 +101,29 @@ div2.appendChild(favoritebutton).innerHTML= "Add to Favorites"
 favoritebutton.addEventListener('click', favoriteSchools)
   }
   
+const favoritesArray = [];
 
 const favoriteSchools = (event) => {
   event.preventDefault();
- const selectedSchool = allSchools.find(s => s.name === findValues)
- const favDiv = document.getElementById("favorites")
- console.log("school", selectedSchool)
- favDiv.innerHTML = selectedSchool
-
- 
+  let schoolName = event.currentTarget.parentNode.firstChild.innerText;
+  const selectedSchool = allSchools.find(s => s.name === schoolName)
+  console.log("selected School ", selectedSchool)
+  const favDiv = document.getElementById("favorites")
+  console.log("school", schoolName.value)
+  // let favoriteheading = document.createElement("h5")
+  // favoriteheading.innerHTML = "My Favorites"
+  // favDiv.appendChild(favoriteheading)
+  //console.log("favorite heading", favoriteheading)
+  favDiv.innerHTML = selectedSchool.name
+  console.log("favDiv", favDiv)
+  favoritesArray.push(selectedSchool.name)
+  console.log("favoritesArray", favoritesArray)
+  const favParagraph = document.createElement('p')
+  favParagraph.id= "favp"
+  favDiv.appendChild(favParagraph).innerHTML = favoritesArray
+  // const favoritesParagraph = document.getElementsByClassName('fav')
+  // console.log("fav", favoritesParagraph)
+  // favoritesParagraph.innerText += favoritesArray
 }
 
 
