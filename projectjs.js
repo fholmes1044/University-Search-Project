@@ -32,6 +32,7 @@ const allSchools = []
 
 function findValues(event) {
   event.preventDefault();
+
   const value = input.value;
   console.log(value);
   formInput.value = '';
@@ -49,6 +50,7 @@ function findValues(event) {
  getForm.addEventListener("submit", findValues);
 
  function addResult(item) {
+
 const { name, country, web_pages } = item;
 const getMainDiv = document.getElementById("main")
 const div2 = document.createElement("div")
@@ -93,18 +95,20 @@ likebtn.addEventListener('click', function increment(){
 
 })
   
+let favoritebutton = document.createElement("button")
+favoritebutton.id = "favorite"
+div2.appendChild(favoritebutton).innerHTML= "Add to Favorites"
+favoritebutton.addEventListener('click', favoriteSchools)
   }
   
 
 const favoriteSchools = (event) => {
   event.preventDefault();
  const selectedSchool = allSchools.find(s => s.name === findValues)
- const h5 = document.createElement('h5')
- const newbutton = document.createElement("button")
+ const favDiv = document.getElementById("favorites")
+ console.log("school", selectedSchool)
+ favDiv.innerHTML = selectedSchool
 
- h5.innerHTML = selectedSchool.name
- maindiv.appendChild(h5)
- h5.appendChild(newbutton)
  
 }
 
