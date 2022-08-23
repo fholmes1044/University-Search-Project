@@ -23,14 +23,12 @@ console.log("butt", getAllButtons)
 Array.from(getAllButtons).forEach(button => {
 button.addEventListener("mouseover", mouseover)})
 
-function myFunction(x) {
-  x.classList.toggle("fa-thumbs-down");
-}function myFunction(x) {
-  x.classList.toggle("fa-thumbs-down");
-}
+
 
 
 console.log("submit", getSubmitButton);
+
+const allSchools = []
 
 function findValues(event) {
   event.preventDefault();
@@ -40,6 +38,7 @@ function findValues(event) {
   fetch(`http://universities.hipolabs.com/search?name=${value}`)
     .then((res) => res.json())
     .then((resp) => {
+        allSchools.push(...resp)
         console.log("response", resp)
       resp.forEach((response) =>addResult(response));
      
@@ -70,19 +69,14 @@ let p3 = document.createElement("p")
 p3.id = "like"
 div2.appendChild(p3).innerHTML = 0 
 
-let buttons = document.createElement("button");
-buttons.classList = "url-buttons"
-div2.appendChild(buttons).innerText = "Go to University Website";
+let button = document.createElement("button");
+button.classList = "url-buttons"
+div2.appendChild(button).innerText = "Go to University Website";
+button.addEventListener("click", () => {
+ location.href = web_pages, 
+      button.target="_blank"; 
+})
 
-let getButtons = document.getElementsByClassName("url-buttons")
-
-Array.from(getButtons).forEach(button => {
-    button.onclick = function (){
-      location.href = web_pages, 
-      button.target="_blank";
-    }
-   
-  })
 
 let likebtn = document.createElement("button")
 likebtn.id = "likebtn"
@@ -101,6 +95,18 @@ likebtn.addEventListener('click', function increment(){
   
   }
   
+
+const favoriteSchools = (event) => {
+  event.preventDefault();
+ const selectedSchool = allSchools.find(s => s.name === findValues)
+ const h5 = document.createElement('h5')
+ const newbutton = document.createElement("button")
+
+ h5.innerHTML = selectedSchool.name
+ maindiv.appendChild(h5)
+ h5.appendChild(newbutton)
+ 
+}
 
 
 
@@ -142,21 +148,8 @@ function mouseover(){
 
 }
 
-// function increment(event){
-//   console.log(event.target.innerText)
-//   let count = parseInt(event.target.innerText) + 1;
-//   console.log("count", count)
-
-  // fetch(`http://localhost:8000/universities/${event.target}`,{
-  //   method:"PATCH",
-  //   headers:{
-  //     "Content-Type": "application/json",
-  //     "Accept" : "application/json"
-  //   },
-  //   body:JSON.stringify({
-  //     likes:count,
-  //   })
-  // })
-  // .then((response) => response.json())
-  // .then((json) => console.log(json));
-//}
+function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}
