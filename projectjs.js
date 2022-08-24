@@ -90,15 +90,13 @@ const favoriteSchools = (event) => {
   let schoolName = event.currentTarget.parentNode.firstChild.innerText;
   const selectedSchool = allSchools.find(s => s.name === schoolName)
   //console.log("selected School ", selectedSchool)
-  
   //console.log("school", schoolName.value)
-  //favDiv.innerHTML = selectedSchool.name
   //console.log("favDiv", favDiv)
   favoritesArray.push(selectedSchool.name)
   //console.log("favoritesArray", favoritesArray)
   const favParagraph = document.createElement('p')
   favParagraph.id= "favp"
-  favDiv.appendChild(favParagraph).innerHTML = selectedSchool //this returns [object , object]
+  favDiv.appendChild(favParagraph).innerHTML = favoritesArray
   
 }
 
