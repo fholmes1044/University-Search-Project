@@ -2,3 +2,8 @@ body{
     background-color: wheat;
     color:black
 }
+
+#main{
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLxVoeW31S2vyb5KvrZBf7N16fXC1JlQ_LXJEX52c_d_S6GlfS6eWidHdcxeOATvyYNSg&usqp=CAU');
+    background-repeat: no-repeat;
+}

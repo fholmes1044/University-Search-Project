@@ -19,11 +19,10 @@ maindiv.appendChild(darkLightButton).innerHTML = "Dark Mode"
 darkLightButton.addEventListener('click', darkLight)
 
 const getAllButtons = document.querySelectorAll("button")
-//console.log("butt", getAllButtons)
 Array.from(getAllButtons).forEach(button => {
 button.addEventListener("mouseover", mouseover)})
 
-
+const favDiv = document.getElementById("favorites")
 
 
 console.log("submit", getSubmitButton);
@@ -56,7 +55,7 @@ function addResult(item) {
   const div2 = document.createElement("div")
   div2.id = "results"
   getMainDiv.appendChild(div2);
-  //console.log("item", item.name)
+  
 
   let h2 = document.createElement("h2")
   div2.appendChild(h2).innerHTML = name;
@@ -67,10 +66,7 @@ function addResult(item) {
   let p2 = document.createElement("p")
   div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
 
-  let p3 = document.createElement("p")
-  p3.id = "like"
-  div2.appendChild(p3).innerHTML = 0 
-
+  
   let button = document.createElement("button");
   button.classList = "url-buttons"
   div2.appendChild(button).innerText = "Go to University Website";
@@ -80,20 +76,6 @@ function addResult(item) {
 })
 
 
-let likebtn = document.createElement("button")
-likebtn.id = "likebtn"
-div2.appendChild(likebtn).innerText = "Like Button"
-likebtn.classList = "like-buttons"
-
-likebtn.addEventListener('click', function increment(){
-  const getLikes = document.getElementById("like")
-  let value = getLikes.innerHTML
-
-  ++value
-  document.getElementById('like').innerHTML = value
-  console.log("value", value)
-
-})
   
 let favoritebutton = document.createElement("button")
 favoritebutton.id = "favorite"
@@ -107,23 +89,17 @@ const favoriteSchools = (event) => {
   event.preventDefault();
   let schoolName = event.currentTarget.parentNode.firstChild.innerText;
   const selectedSchool = allSchools.find(s => s.name === schoolName)
-  console.log("selected School ", selectedSchool)
-  const favDiv = document.getElementById("favorites")
-  console.log("school", schoolName.value)
-  // let favoriteheading = document.createElement("h5")
-  // favoriteheading.innerHTML = "My Favorites"
-  // favDiv.appendChild(favoriteheading)
-  //console.log("favorite heading", favoriteheading)
-  favDiv.innerHTML = selectedSchool.name
-  console.log("favDiv", favDiv)
+  //console.log("selected School ", selectedSchool)
+  
+  //console.log("school", schoolName.value)
+  //favDiv.innerHTML = selectedSchool.name
+  //console.log("favDiv", favDiv)
   favoritesArray.push(selectedSchool.name)
-  console.log("favoritesArray", favoritesArray)
+  //console.log("favoritesArray", favoritesArray)
   const favParagraph = document.createElement('p')
   favParagraph.id= "favp"
-  favDiv.appendChild(favParagraph).innerHTML = favoritesArray
-  // const favoritesParagraph = document.getElementsByClassName('fav')
-  // console.log("fav", favoritesParagraph)
-  // favoritesParagraph.innerText += favoritesArray
+  favDiv.appendChild(favParagraph).innerHTML = selectedSchool //this returns [object , object]
+  
 }
 
 
@@ -156,7 +132,7 @@ function darkLight(){
   }
 }
 function submitMouse(){
-getSubmitButton.style.cursor = "pointer"
+  getSubmitButton.style.cursor = "pointer"
 }
 
 
@@ -166,8 +142,3 @@ function mouseover(){
 
 }
 
-function myFunction(x) {
-  x.classList.toggle("fa-thumbs-down");
-}function myFunction(x) {
-  x.classList.toggle("fa-thumbs-down");
-}
