@@ -1,9 +1,17 @@
 body{
-    background-color: wheat;
-    color:black
+    background-image: url("https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    color:black;
+    background-size: cover;
+    
 }
 
 #main{
-   
+    background-image: url();
     background-repeat: no-repeat;
+}
+
+#img{
+    height:50px;
+    width:50px;
+    
 }
