@@ -2,14 +2,15 @@
 const getSubmitButton = document.getElementById("submit");
 getSubmitButton.addEventListener("mouseover", submitMouse)
 
-
 const getForm = document.getElementById("search-form");
 const formInput = document.getElementById("input");
 const maindiv = document.getElementById("main")
+
 const subscribeButton = document.createElement("button")
 subscribeButton.id = "subscribe"
 maindiv.appendChild(subscribeButton).innerHTML ="Subscribe for University Updates"
 subscribeButton.addEventListener('click', subscribe, false)
+
 const getComment = document.getElementById("post")
 getComment.addEventListener("click", comments)
  
@@ -23,16 +24,18 @@ Array.from(getAllButtons).forEach(button => {
 button.addEventListener("mouseover", mouseover)})
 
 const favDiv = document.getElementById("favorites")
+const favheading = document.createElement("h4")
+favDiv.appendChild(favheading).innerText = "Favorite Schools"
+const favUl = document.createElement('ul');
+favDiv.appendChild(favUl)
 
 
-
-console.log("submit", getSubmitButton);
+getForm.addEventListener("submit", findValues);
 
 const allSchools = []
 
 function findValues(event) {
   event.preventDefault();
-
   const value = input.value;
   console.log(value);
   formInput.value = '';
@@ -40,33 +43,26 @@ function findValues(event) {
     .then((res) => res.json())
     .then((resp) => {
         allSchools.push(...resp)
-        //console.log("response", resp)
         resp.forEach((response) =>addResult(response));
      
     });
 }
 
-
-getForm.addEventListener("submit", findValues);
-
 function addResult(item) {
-
   const { name, country, web_pages } = item;
   const getMainDiv = document.getElementById("main")
   const div2 = document.createElement("div")
   div2.id = "results"
   getMainDiv.appendChild(div2);
   
-
-  let h2 = document.createElement("h2")
-  div2.appendChild(h2).innerHTML = name;
+  let h3 = document.createElement("h3")
+  div2.appendChild(h3).innerHTML = name;
 
   let p = document.createElement("p")
   div2.appendChild(p).innerHTML = `Country: ${country}`
 
   let p2 = document.createElement("p")
   div2.appendChild(p2).innerHTML = `Website : ${web_pages}`
-
   
   let button = document.createElement("button");
   button.classList = "url-buttons"
@@ -74,6 +70,8 @@ function addResult(item) {
   button.addEventListener("click", () => {
       location.href = web_pages, 
       button.target="_blank"; 
+
+
 })
 let favoritebutton = document.createElement("button")
 favoritebutton.className = "favorite"
@@ -82,33 +80,26 @@ favoritebutton.addEventListener('click', favoriteSchools)
 
 
   }
-  
+   
 const favoritesArray = [];
-  const favUl = document.createElement('ul');
-  favDiv.appendChild(favUl)
 
 const favoriteSchools = (event) => {
 
   let schoolName = event.currentTarget.parentNode.firstChild.innerText;
   const selectedSchool = allSchools.find(s => s.name === schoolName)
-  //console.log("selected School ", selectedSchool)
-  //console.log("school", schoolName.value)
-  //console.log("favDiv", favDiv)
+  
   favoritesArray.push(selectedSchool.name)
   favUl.innerHTML = ''
-  //console.log("favoritesArray", favoritesArray)
+  
 favoritesArray.forEach(favSchool => {
   const favLi = document.createElement('li')
+  favLi.className = "favs"
   favUl.appendChild(favLi).innerHTML= favSchool
 })
   
   
   
 }
-   
-  
-
-
 
 function subscribe(){
  let email = prompt ("What is your email?"); 

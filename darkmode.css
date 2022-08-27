@@ -1,5 +1,5 @@
 body{
-    background-image:url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&w=800");
+    background-image:url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     color: lightgreen;
     background-size: cover;
 
@@ -18,3 +18,25 @@ body{
     margin-right: auto;
     width: 50%;
   }
+
+  .favs{
+    font-weight: bolder;
+    font-size: 18px;
+  }
+
+  p{
+    font-weight: bolder;
+    font-size: 18px;
+  }
+
+  .favorite{
+    margin-left: 100px;
+}
+
+#dlb{
+    margin-left: 100px;
+}
+
+#subscribe{
+    margin-left:1100px
+}

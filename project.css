@@ -1,5 +1,5 @@
 body{
-    background-image: url("https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-image: url("https://images.pexels.com/photos/10526880/pexels-photo-10526880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     color:black;
     background-size: cover;
     
@@ -22,3 +22,31 @@ body{
     margin-right: auto;
     width: 50%;
   }
+
+  ::placeholder {
+    color: rgb(48, 39, 11);
+  }
+
+  .favs{
+    color:rgb(85, 67, 13);
+    font-weight: bolder;
+    font-size: 18px;
+  }
+
+  p{
+    color:rgb(75, 56, 9);
+    font-weight: bolder;
+    font-size: 18px;
+  }
+
+.favorite{
+    margin-left: 100px;
+}
+
+#dlb{
+    margin-left: 100px;
+}
+
+#subscribe{
+    margin-left:1100px
+}
