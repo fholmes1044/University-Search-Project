@@ -75,9 +75,6 @@ function addResult(item) {
       location.href = web_pages, 
       button.target="_blank"; 
 })
-
-
-  
 let favoritebutton = document.createElement("button")
 favoritebutton.className = "favorite"
 div2.appendChild(favoritebutton).innerHTML= "Add to Favorites"
@@ -87,24 +84,29 @@ favoritebutton.addEventListener('click', favoriteSchools)
   }
   
 const favoritesArray = [];
+  const favUl = document.createElement('ul');
+  favDiv.appendChild(favUl)
 
-const favoriteSchools = (name) => {
-  event.preventDefault();
-  console.log("name", name)
+const favoriteSchools = (event) => {
+
   let schoolName = event.currentTarget.parentNode.firstChild.innerText;
   const selectedSchool = allSchools.find(s => s.name === schoolName)
   //console.log("selected School ", selectedSchool)
   //console.log("school", schoolName.value)
   //console.log("favDiv", favDiv)
   favoritesArray.push(selectedSchool.name)
+  favUl.innerHTML = ''
   //console.log("favoritesArray", favoritesArray)
-  const favUl = document.createElement('ul');
-  favDiv.appendChild(favUl)
+favoritesArray.forEach(favSchool => {
   const favLi = document.createElement('li')
-  favUl.appendChild(favLi).innerHTML= favoritesArray
+  favUl.appendChild(favLi).innerHTML= favSchool
+})
+  
   
   
 }
+   
+  
 
 
 

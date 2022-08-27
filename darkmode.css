@@ -3,4 +3,18 @@ body{
     color: lightgreen;
     background-size: cover;
 
+
 }
+
+#img{
+    height:300px;
+    width:300px;
+    
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
