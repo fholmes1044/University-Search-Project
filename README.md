@@ -11,3 +11,5 @@ This project was made to allow prospective sstudents to find information about s
 # Technologies Used 
 * Vanilla Javascript 
 * [Universities API](https://github.com/Hipo/university-domains-list)
+* HTML
+* CSS
