@@ -10,4 +10,4 @@ This project was made to allow prospective sstudents to find information about s
 * View the site in Dark Mode
 # Technologies Used 
 * Vanilla Javascript 
- [Universities API] (https://github.com/Hipo/university-domains-list)
+* [Universities API](https://github.com/Hipo/university-domains-list)
