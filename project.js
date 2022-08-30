@@ -1,10 +1,11 @@
 
 const getSubmitButton = document.getElementById("submit");
-getSubmitButton.addEventListener("mouseover", submitMouse)
+getSubmitButton.addEventListener("mouseover", submitMouse);
 
 const getForm = document.getElementById("search-form");
 const formInput = document.getElementById("input");
-const maindiv = document.getElementById("main")
+
+const maindiv = document.getElementById("main");
 
 const subscribeButton = document.createElement("button")
 subscribeButton.id = "subscribe"
@@ -29,7 +30,6 @@ favDiv.appendChild(favheading).innerText = "Favorite Schools"
 const favUl = document.createElement('ul');
 favDiv.appendChild(favUl)
 
-
 getForm.addEventListener("submit", findValues);
 
 const allSchools = []
@@ -43,7 +43,7 @@ function findValues(event) {
     .then((res) => res.json())
     .then((resp) => {
         allSchools.push(...resp)
-        resp.forEach((response) =>addResult(response));
+        resp.forEach((response) => addResult(response));
      
     });
 }
@@ -70,35 +70,25 @@ function addResult(item) {
   button.addEventListener("click", () => {
       location.href = web_pages, 
       button.target="_blank"; 
-
-
 })
-let favoritebutton = document.createElement("button")
-favoritebutton.className = "favorite"
-div2.appendChild(favoritebutton).innerHTML= "Add to Favorites"
-favoritebutton.addEventListener('click', favoriteSchools)
-
-
+  let favoritebutton = document.createElement("button")
+  favoritebutton.className = "favorite"
+  div2.appendChild(favoritebutton).innerHTML= "Add to Favorites"
+  favoritebutton.addEventListener('click', favoriteSchools)
   }
    
 const favoritesArray = [];
 
 const favoriteSchools = (event) => {
-
   let schoolName = event.currentTarget.parentNode.firstChild.innerText;
   const selectedSchool = allSchools.find(s => s.name === schoolName)
-  
   favoritesArray.push(selectedSchool.name)
   favUl.innerHTML = ''
-  
-favoritesArray.forEach(favSchool => {
+  favoritesArray.forEach(favSchool => {
   const favLi = document.createElement('li')
   favLi.className = "favs"
   favUl.appendChild(favLi).innerHTML= favSchool
-})
-  
-  
-  
+})  
 }
 
 function subscribe(){
@@ -108,11 +98,11 @@ function subscribe(){
 
 function comments(){
   let commentBoxValue= document.getElementById("comment-box").value;
- 
-    const li = document.createElement("li");
-    const text = document.createTextNode(commentBoxValue);
-    li.appendChild(text);
-    document.getElementById("unordered").appendChild(li);
+  const li = document.createElement("li");
+  const text = document.createTextNode(commentBoxValue);
+  li.appendChild(text);
+  document.getElementById("unordered").appendChild(li);
+  commentBoxValue.value = ''
  
 }
 
@@ -123,19 +113,18 @@ function darkLight(){
    css.setAttribute('href','darkmode.css' )
    dlb.innerHTML = "Light Mode"
   }
-  else{css.setAttribute('href','project.css' )
+  else{
+  css.setAttribute('href','project.css')
   dlb.innerHTML = "Dark Mode"
-
   }
 }
+
 function submitMouse(){
   getSubmitButton.style.cursor = "pointer"
 }
 
-
 function mouseover(){
   Array.from(getAllButtons).forEach(button => {
   button.style.cursor = "pointer"})
-
 }
 

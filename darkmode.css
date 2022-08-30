@@ -40,3 +40,7 @@ body{
 #subscribe{
     margin-left:1100px
 }
+
+input[type=text] {
+  color: lightgreen;
+}
